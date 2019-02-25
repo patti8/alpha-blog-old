@@ -19,7 +19,9 @@ class ArticlesController < ApplicationController
 		end
 	end
 	def create
+	
 		@article = Article.new(article_params)
+		@article.user = User.first
 		if @article.save
 		flash[:success] = "Artikel berhasil dibuat!!"
 		redirect_to article_path(@article)
